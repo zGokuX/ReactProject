@@ -17,17 +17,17 @@ export default function upBar() {
                     <h1>Ciao siamo nella home di react</h1>
                 </div>
                 {/*
-            TODO: Quando si clicca l'iconcina del profile, deve uscire una barra sotto con
-            
-            Accedi(in caso non si è fatto l'accesso)
+                    TODO: Quando si clicca l'iconcina del profile, deve uscire una barra sotto con
+                    
+                    Accedi(in caso non si è fatto l'accesso)
 
-            Option
+                    Option
 
-            logOut
+                    logOut
 
-            quest'ultimi dovranno essere resi cliccabili e non grigi in caso l'utente fosse loggato
+                    quest'ultimi dovranno essere resi cliccabili e non grigi in caso l'utente fosse loggato
 
-            */}
+                */}
                 <div className='side-up-right'>
                     <ul>
                         <div className='box'>

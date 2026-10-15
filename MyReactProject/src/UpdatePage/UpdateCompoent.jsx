@@ -15,7 +15,7 @@ export default function UpdateComponent(props) {
             <div className="container-desc">
                 <div className="container-between">
                     <h2>News/update del {date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()}</h2>
-                    {props.isAdmin &&
+                    {!props.isAdmin &&
 
                         <ButtonCS>Aggiunti notizia o novità<i className="bi bi-plus-circle-fill"></i></ButtonCS>
                     }

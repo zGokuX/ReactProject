@@ -120,6 +120,7 @@ body {
 }
 
 .container-between button {
+    display: flex;
     margin-right: 5px;
     gap: 5px;
 }
