@@ -1,30 +1,25 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
-import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import Profile from './profile-component/ProfileComponent.jsx'
-import 'bootstrap-icons/font/bootstrap-icons.css'
 import About from './AboutPage/About.jsx'
 import NotFound from './NotFoundPage/NotFound.jsx'
 import UpdateComponent from './UpdatePage/UpdateCompoent.jsx'
-
-const router = createBrowserRouter(
-  [
-    { path: '/', element: <Navigate to="/Home" replace /> },
-    { path: '/Home', element: <App /> },
-    { path: '/profile', element: <Profile /> },
-    { path: '/about', element: <About /> },
-    { path: '/news', element: <UpdateComponent /> },
-    { path: '*', element: <NotFound /> }
-  ],
-  {
-    basename: '/ReactProject'
-  }
-)
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/Home" replace />} />
+        <Route path="/Home" element={<App />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/news" element={<UpdateComponent />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </HashRouter>
   </StrictMode>
 )
