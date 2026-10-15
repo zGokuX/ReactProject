@@ -10,7 +10,7 @@ import NotFound from './NotFoundPage/NotFound.jsx'
 import UpdateComponent from './UpdatePage/UpdateCompoent.jsx'
 
 const router = createBrowserRouter([
-  { path: '/', element: <App /> },
+  { path: '/Home', element: <App /> },
   { path: '/profile', element: <Profile />},
   { path: '/about', element: <About />},
   {path: '/news', element: <UpdateComponent/>},

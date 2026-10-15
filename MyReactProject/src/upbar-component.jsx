@@ -38,7 +38,7 @@ export default function upBar() {
                             <div className='list-opt'>
                                 <span onClick={() => changePage('/login')}>Login</span>
                                 <span onClick={() => changePage('/option')}>Option</span>
-                                <span onClick={() => changePage('/')}>Logout</span>
+                                <span onClick={() => changePage('/Home')}>Logout</span>
                             </div>
                             }
                         </div>

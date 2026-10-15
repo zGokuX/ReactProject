@@ -8,7 +8,7 @@ export default function UpdateComponent(props) {
             <title>News</title>
             <div className="container-up">
                 <h1>News/Update del sito</h1>
-                <Link to={'/'}>
+                <Link to={'/Home'}>
                     <i className="bi bi-arrow-bar-left danger back"></i>
                 </Link>
             </div>

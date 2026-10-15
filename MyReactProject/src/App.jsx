@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import './App.css'
 import UpBar from './upbar-component'
-import ButtonCS from './button-component/ButtonComponent'
 import { Link } from 'react-router-dom'
 export default function Home() {
   return (

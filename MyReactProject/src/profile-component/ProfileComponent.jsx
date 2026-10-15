@@ -7,7 +7,7 @@ export default function Profile(){
         <div className="container-up container-profile">
             <h1>Siamo in profile</h1>
             
-            <Link to={'/'}>
+            <Link to={'/Home'}>
             <i className="bi bi-arrow-bar-left danger back"></i>
             </Link>
         </div>

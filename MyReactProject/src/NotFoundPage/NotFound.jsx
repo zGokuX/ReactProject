@@ -11,7 +11,7 @@ export default function NotFound(){
         </div>
         <div className="container-desc center-js colunm">
             <h4>Stai cercando di raggiungere una pagina che attualmente non esiste</h4>
-            <Link to={'/'}>
+            <Link to={'/Home'}>
             <ButtonCS>Torna indietro</ButtonCS>
             </Link>
         </div>

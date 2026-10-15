@@ -7,7 +7,7 @@ export default function About() {
         <title>About</title>
             <div className="container-up container-about">
                 <h1>About us</h1>
-                <Link to={'/'}>
+                <Link to={'/Home'}>
                     <i className="bi bi-arrow-bar-left danger back"></i>
                 </Link>
             </div>
