@@ -180,11 +180,11 @@ body {
 }
 
 .login-form label {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .check-password{
-    font-size:0.8rem;
+    font-size:0.9rem;
     display: flex;
     align-items: center;
 }
