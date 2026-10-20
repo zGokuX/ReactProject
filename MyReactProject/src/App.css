@@ -14,6 +14,7 @@ body {
     align-items: center !important;
 }
 
+
 .colunm {
     display: flex;
     flex-direction: column !important;
@@ -162,4 +163,32 @@ body {
     color: rgb(246, 61, 61);
     text-decoration: underline;
 
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 13rem;
+    gap: 10px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    white-space: nowrap;
+}
+
+.login-form label {
+    font-size: 0.9rem;
+}
+
+.check-password{
+    font-size:0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.login-form a {
+    font-size: 0.8rem;
 }
