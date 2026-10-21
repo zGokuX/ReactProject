@@ -184,7 +184,7 @@ body {
     color: cornflowerblue;
     text-decoration: underline;
 }
-.side-up-right .box .list-opt span:last-child:hover{
+.side-up-right .box .list-opt .logout span:last-child:hover{
     cursor: pointer;
     color: rgb(246, 61, 61);
     text-decoration: underline;

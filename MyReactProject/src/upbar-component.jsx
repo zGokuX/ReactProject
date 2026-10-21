@@ -81,7 +81,7 @@ export default function upBar() {
                                     }
                                     <span onClick={() => changePage('/option')}>Option</span>
                                     {checkLogged &&
-                                        <span onClick={() => logoutFunc()}>Logout</span>
+                                        <span className='logout' onClick={() => logoutFunc()}>Logout</span>
                                     }
                                 </div>
                             }
