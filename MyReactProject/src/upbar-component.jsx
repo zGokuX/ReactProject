@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ButtonCS from './button-component/ButtonComponent'
 
+
+
 export default function upBar({ notificationNumber, setNotificationNumber }) {
     console.log(notificationNumber)
     const [isClick, setIsClick] = useState(false)
