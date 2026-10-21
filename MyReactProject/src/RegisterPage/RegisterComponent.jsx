@@ -1,11 +1,37 @@
 import { useState } from 'react'
 import ButtonCS from '../button-component/ButtonComponent'
-import { Link } from 'react-router-dom'
+import { data, Link, useLocation, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { create } from '../Store/userSlice';
+import {
+    incrementNotification,
+    setContentOfNotification
+} from '../Store/notificationSlice';
 
 
 export default function Register(){
+    const d = new Date()
+    const navigate = useNavigate()
+    const data = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear()
+    const user = useSelector((state) => state.user)
+    const dispatch = useDispatch()
     const [isClicked, setIsClicked] = useState(false)
-
+    const [name, setName] = useState('')
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+    const [confirmPassword,setConfirmPassword] = useState('')
+    function register(){
+        if(password === confirmPassword){
+            dispatch(create({
+                name: name,
+                email: email,
+                password: password
+            }))
+            dispatch(incrementNotification())
+            dispatch(setContentOfNotification(`Benvenuto ${name}, hai creato il tuo account nel nostro sito! -- ${data}`))
+            navigate('/Home')
+        }
+    }
     return(
         <>
          <title>Register</title>
@@ -18,19 +44,19 @@ export default function Register(){
 
             <div className="login-form">
                 <label htmlFor="nome">Nome</label>
-                <input type="text" placeholder="inserisci il tuo nome utente..." />
+                <input type="text" onChange={(e) => setName(prev => e.target.value)} placeholder="inserisci il tuo nome utente..." />
                 <label htmlFor="email">email</label>
-                <input type="email" placeholder="inserisci l'email..." />
+                <input type="email" onChange={(e) => setEmail(prev => e.target.value)} placeholder="inserisci l'email..." />
                 <label htmlFor="password">Crea password</label>
-                <input type={isClicked ? "text" : "password"} placeholder="inserisci la password..." />
+                <input type={isClicked ? "text" : "password"} onChange={(e) => setPassword(prev => e.target.value)} placeholder="inserisci la password..." />
                 <label htmlFor="password">Conferma password</label>
-                <input type={isClicked ? "text" : "password"} placeholder="Inserisci dinuovo la tua password..." />
+                <input type={isClicked ? "text" : "password"} onChange={(e) => setConfirmPassword(prev => e.target.value)} placeholder="Inserisci dinuovo la tua password..." />
                 <div className="check-password">
                     <span>{isClicked ? "Nascondi passowrd" : "Mostra password"}</span>
                     <input type="checkbox" onClick={() => setIsClicked(prev => !prev)} />
                 </div>
 
-                <ButtonCS>Registrati</ButtonCS>
+                <ButtonCS onClick={() => register()}>Registrati</ButtonCS>
                 <Link to={"/login"}>Hai già un'account? accedi!</Link>
             </div>
         </>

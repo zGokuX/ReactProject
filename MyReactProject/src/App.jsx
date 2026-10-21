@@ -4,12 +4,15 @@ import UpBar from './upbar-component'
 import { Link } from 'react-router-dom'
 import { useNotifications } from '@toolpad/core/useNotifications'
 import { useEffect, useRef } from 'react'
-
-export default function Home({ notificationNumber, setNotificationNumber }) {
-     const notifications = useNotifications()
+import { useSelector} from 'react-redux'
+export default function Home() {
+    const notificationNumber =useSelector((state) => state.notification.number)
+    const notifications = useNotifications()
+    const user = useSelector((state) => state.user)
     const lastNotified = useRef(null)
 
     useEffect(() => {
+        console.log(user)
         if (notificationNumber < 1) return
         if (lastNotified.current === notificationNumber) return
 
@@ -26,8 +29,6 @@ export default function Home({ notificationNumber, setNotificationNumber }) {
             <title>Home</title>
             <main>
                 <UpBar
-                    notificationNumber={notificationNumber}
-                    setNotificationNumber={setNotificationNumber}
                 />
 
                 <div className="container-desc">

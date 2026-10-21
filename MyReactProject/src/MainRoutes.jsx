@@ -11,7 +11,6 @@ import Register from './RegisterPage/RegisterComponent.jsx'
 import NotificationC from './NotificationPage/NotificationComponent.jsx'
 
 export default function MainRoutes() {
-    const [notificationNumber, setNotificationNumber] = useState(0)
 
     return (
         <Routes>
@@ -21,15 +20,13 @@ export default function MainRoutes() {
                 path="/Home"
                 element={
                     <App
-                        notificationNumber={notificationNumber}
-                        setNotificationNumber={setNotificationNumber}
                     />
                 }
             />
 
             <Route
                 path="/notification"
-                element={<NotificationC notificationN={notificationNumber} />}
+                element={<NotificationC />}
             />
 
             <Route path="/profile" element={<Profile />} />

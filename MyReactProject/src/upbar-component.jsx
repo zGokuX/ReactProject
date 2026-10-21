@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ButtonCS from './button-component/ButtonComponent'
+import { useSelector } from 'react-redux'
 
 
 
-export default function upBar({ notificationNumber, setNotificationNumber }) {
-    console.log(notificationNumber)
+export default function upBar() {
     const [isClick, setIsClick] = useState(false)
-
+    const notificationNumber =useSelector((state) => state.notification.number)
     const navigate = useNavigate();
     function changePage(name) {
         setIsClick(false)
@@ -56,7 +56,7 @@ export default function upBar({ notificationNumber, setNotificationNumber }) {
 
                             {isClick &&
                                 <div className='list-opt'>
-                                    <span onClick={() => changePage('/login')}>Login</span>
+                                    <span onClick={() => changePage('/register')}>Registrati</span>
                                     <span onClick={() => changePage('/option')}>Option</span>
                                     <span onClick={() => changePage('/Home')}>Logout</span>
                                 </div>
