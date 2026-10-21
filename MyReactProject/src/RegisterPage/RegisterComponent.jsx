@@ -1,42 +1,58 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ButtonCS from '../button-component/ButtonComponent'
-import { data, Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { create } from '../Store/userSlice';
+import { addUserNotification, create, setIsLogged, setSelectedUserLogged } from '../Store/userSlice';
 import {
     incrementNotification,
     setContentOfNotification
 } from '../Store/notificationSlice';
 
 
-export default function Register(){
+export default function Register() {
     const d = new Date()
     const navigate = useNavigate()
     const data = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear()
-    const user = useSelector((state) => state.user)
     const dispatch = useDispatch()
     const [isClicked, setIsClicked] = useState(false)
     const [name, setName] = useState('')
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
-    const [confirmPassword,setConfirmPassword] = useState('')
-    function register(){
-        if(password === confirmPassword){
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
+    const checkLogged = useSelector((state) => state.user.isLogged)
+    useEffect(() => {
+        if (checkLogged) {
+            navigate('/Home')
+        }
+    }, [checkLogged])
+
+    function register() {
+        if (password === confirmPassword) {
+            const message = `Benvenuto ${name}, hai creato il tuo account nel nostro sito! -- ${data}`
+            dispatch(setContentOfNotification(message))
             dispatch(create({
+                name: name,
+                email: email,
+                password: password,
+                content_notify: message
+            }))
+            dispatch(setSelectedUserLogged({
                 name: name,
                 email: email,
                 password: password
             }))
+            dispatch(addUserNotification(message))
+            dispatch(setIsLogged(true))
             dispatch(incrementNotification())
-            dispatch(setContentOfNotification(`Benvenuto ${name}, hai creato il tuo account nel nostro sito! -- ${data}`))
             navigate('/Home')
         }
     }
-    return(
+    return (
         <>
-         <title>Register</title>
+            <title>Register</title>
             <div className="container-up">
-                <h1>Register</h1>
+                <h1>Register(WIP)</h1>
                 <Link to={'/Home'}>
                     <i className="bi bi-arrow-bar-left danger back"></i>
                 </Link>

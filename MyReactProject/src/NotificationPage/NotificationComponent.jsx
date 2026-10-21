@@ -4,7 +4,9 @@ import { resetNotifications } from "../Store/notificationSlice";
 
 
 export default function NotificationC() {
-    const notificationContent = useSelector((state) => state.notification.content)
+    const user_content_clientSide = useSelector(
+        (state) => state.user.selectedUserLogged?.content_notify ?? []
+    )
     const notificationN = useSelector((state) => state.notification.number)
     const dispatch = useDispatch()
 
@@ -21,7 +23,7 @@ export default function NotificationC() {
                 </Link>
             </div>
             <div className="container-desc">
-                {notificationContent.map((update, index) => (
+                {user_content_clientSide.map((update, index) => (
                     <p key={index}>{update}</p>
                 ))}
             </div>
