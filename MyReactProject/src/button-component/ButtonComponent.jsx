@@ -10,7 +10,7 @@ export default function ButtonCS( props ){
     Il nostro bottone invece di usare il colore predefinito dal CSS utilizzerà il colore che gli
     verrà passato nei parametri
     */}
-    <button className="custom-button" onClick={props.onClick} style={{backgroundColor: props.color, fontSize: props.size, width: props.width, height: props.height}}>{props.children}</button>
+    <button className={props.classArrived || "custom-button"} onClick={props.onClick} style={{backgroundColor: props.color, fontSize: props.size, width: props.width, height: props.height}}>{props.children}</button>
     </>
         
     )
